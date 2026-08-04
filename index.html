@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Тест СТМ MIKA — 30 вопросов</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Unbounded:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <main class="shell">
+    <section id="screen-start" class="panel">
+      <p class="eyebrow">Обучение продавцов-консультантов</p>
+      <h1>СТМ <span>MIKA</span></h1>
+      <p class="lead">Тест на 30 вопросов по каталогу: растворители, огнебио и грунтовки, пены, масла, насосы и бренды.</p>
+      <ul class="meta">
+        <li>Один правильный ответ</li>
+        <li>~25–35 минут</li>
+        <li>Результат сразу после прохождения</li>
+      </ul>
+      <label class="name-field">
+        <span>Ваше имя (необязательно)</span>
+        <input id="user-name" type="text" maxlength="60" placeholder="Например, Анна" autocomplete="name" />
+      </label>
+      <button type="button" class="btn primary" id="btn-start">Начать тест</button>
+    </section>
+
+    <section id="screen-quiz" class="panel hidden" aria-live="polite">
+      <div class="topbar">
+        <div class="progress-wrap">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="topmeta">
+          <span id="q-counter">1 / 30</span>
+          <span id="q-topic" class="topic"></span>
+        </div>
+      </div>
+      <h2 id="q-text"></h2>
+      <div id="options" class="options" role="radiogroup"></div>
+      <div class="nav">
+        <button type="button" class="btn ghost" id="btn-prev" disabled>Назад</button>
+        <button type="button" class="btn primary" id="btn-next" disabled>Далее</button>
+      </div>
+    </section>
+
+    <section id="screen-result" class="panel hidden">
+      <p class="eyebrow">Результат</p>
+      <h1 id="score-title">Готово</h1>
+      <p class="scoreline"><span id="score-num">0</span><span class="slash">/</span>30</p>
+      <p id="score-verdict" class="lead"></p>
+      <div id="topic-stats" class="topic-stats"></div>
+      <div id="review" class="review"></div>
+      <button type="button" class="btn primary" id="btn-restart">Пройти ещё раз</button>
+    </section>
+  </main>
+
+  <footer class="foot">По материалам каталога СТМ MIKA / TORRA / INALL</footer>
+  <script src="app.js"></script>
+</body>
+</html>
