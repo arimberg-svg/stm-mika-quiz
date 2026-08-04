@@ -8,6 +8,8 @@
 
 **https://arimberg-svg.github.io/stm-mika-quiz/**
 
+Репозиторий: https://github.com/arimberg-svg/stm-mika-quiz
+
 ## Локально
 
 Откройте `index.html` через локальный сервер (из‑за `fetch` к `questions.json`):
