@@ -3,62 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Тест СТМ MIKA — 30 вопросов</title>
+  <title>Собственные бренды СТМ — СТМ презентация</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Unbounded:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="site.css" />
 </head>
 <body>
-  <div class="bg-grid" aria-hidden="true"></div>
-
-  <main class="shell">
-    <section id="screen-start" class="panel">
-      <p class="eyebrow">Обучение продавцов-консультантов</p>
-      <h1>СТМ <span>MIKA</span></h1>
-      <p class="lead">Тест на 30 вопросов по каталогу: растворители, огнебио и грунтовки, пены, масла, насосы и бренды.</p>
-      <ul class="meta">
-        <li>Один правильный ответ</li>
-        <li>~25–35 минут</li>
-        <li>Результат сразу после прохождения</li>
-      </ul>
-      <label class="name-field">
-        <span>Ваше имя (необязательно)</span>
-        <input id="user-name" type="text" maxlength="60" placeholder="Например, Анна" autocomplete="name" />
-      </label>
-      <button type="button" class="btn primary" id="btn-start">Начать тест</button>
-    </section>
-
-    <section id="screen-quiz" class="panel hidden" aria-live="polite">
-      <div class="topbar">
-        <div class="progress-wrap">
-          <div class="progress-bar" id="progress-bar"></div>
-        </div>
-        <div class="topmeta">
-          <span id="q-counter">1 / 30</span>
-          <span id="q-topic" class="topic"></span>
-        </div>
+  <div class="site">
+    <header class="topnav">
+      <div class="topnav-inner">
+        <a class="brand-lockup" href="index.html">
+          <img src="assets/logos/mika.jpg" alt="MIKA" />
+          <span>СТМ обучение</span>
+        </a>
+        <nav class="nav-links"><a href="index.html">Старт</a><a href="brand-mika.html">MIKA</a><a href="brand-torra.html">TORRA</a><a href="brand-inall.html">INALL</a><a href="topics.html">Виды СТМ</a><a href="quiz.html">Большой тест</a></nav>
       </div>
-      <h2 id="q-text"></h2>
-      <div id="options" class="options" role="radiogroup"></div>
-      <div class="nav">
-        <button type="button" class="btn ghost" id="btn-prev" disabled>Назад</button>
-        <button type="button" class="btn primary" id="btn-next" disabled>Далее</button>
-      </div>
-    </section>
+    </header>
+    <main class="wrap">
+      
+<section class="hero" style="--hero-image:url('assets/products/peny_1.jpg')">
+  <p class="eyebrow">Обучение продавцов-консультантов</p>
+  <h1>Презентация СТМ</h1>
+  <p class="lead">Бренды, виды товаров и шпаргалки для консультации — с тестом на каждой странице.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="topics.html">Смотреть виды СТМ</a>
+    <a class="btn btn-ghost" href="quiz.html">Большой тест 30 вопросов</a>
+  </div>
+</section>
 
-    <section id="screen-result" class="panel hidden">
-      <p class="eyebrow">Результат</p>
-      <h1 id="score-title">Готово</h1>
-      <p class="scoreline"><span id="score-num">0</span><span class="slash">/</span>30</p>
-      <p id="score-verdict" class="lead"></p>
-      <div id="topic-stats" class="topic-stats"></div>
-      <div id="review" class="review"></div>
-      <button type="button" class="btn primary" id="btn-restart">Пройти ещё раз</button>
-    </section>
-  </main>
+      
+<section class="section">
+  <h2>Три бренда — одна СТМ</h2>
+  <p>СТМ (собственная торговая марка) — товары под нашими брендами. Для консультанта важно знать, <strong>какой бренд за что отвечает</strong> и что предложить в конкретной задаче покупателя.</p>
+  <div class="logo-row">
+    <a class="logo-pill" href="brand-mika.html"><img src="assets/logos/mika.jpg" alt="MIKA" /><span>MIKA</span></a>
+    <a class="logo-pill" href="brand-torra.html"><img src="assets/logos/torra.jpg" alt="TORRA" /><span>TORRA</span></a>
+    <a class="logo-pill" href="brand-inall.html"><img src="assets/logos/inall.jpg" alt="INALL" /><span>INALL</span></a>
+  </div>
+</section>
 
-  <footer class="foot">По материалам каталога СТМ MIKA / TORRA / INALL</footer>
-  <script src="app.js"></script>
+<section class="section">
+  <h2>Виды товаров СТМ</h2>
+  <p>Ниже — учебные разделы по категориям. В конце каждой страницы — короткий тест.</p>
+  <div class="topic-grid">
+    <a class="topic-link" href="topic-peny.html"><img src="assets/products/peny_1.jpg" alt="" /><div class="meta"><strong>Пены</strong><span>бытовая, проф, зимняя, огнестойкая, клей-пена</span></div></a>
+    <a class="topic-link" href="topic-masla.html"><img src="assets/products/masla_1.jpg" alt="" /><div class="meta"><strong>Масла</strong><span>2T / 4T, ТАД-17, цепь, компрессор</span></div></a>
+    <a class="topic-link" href="topic-nasosy.html"><img src="assets/products/nasosy_1.jpg" alt="" /><div class="meta"><strong>Насосы</strong><span>вибрационные, дренаж, скважины, станции</span></div></a>
+    <a class="topic-link" href="topic-rastvoriteli.html"><img src="assets/products/rastvoriteli_2.jpg" alt="" /><div class="meta"><strong>Растворители и грунты</strong><span>646, 650, уайт-спирит, огнебио</span></div></a>
+    <a class="topic-link" href="topic-stroyka.html"><img src="assets/products/betono_1.jpg" alt="" /><div class="meta"><strong>Стройка</strong><span>тачки, бетоносмесители, мембраны, метизы</span></div></a>
+    <a class="topic-link" href="topic-instrument.html"><img src="assets/products/bity_1.jpg" alt="" /><div class="meta"><strong>Инструмент и расходники</strong><span>биты, диски, станки, ножи</span></div></a>
+    <a class="topic-link" href="topic-sad.html"><img src="assets/products/masla_3.jpg" alt="" /><div class="meta"><strong>Сад и хозяйство</strong><span>катушки, леска, лопаты, шланги</span></div></a>
+    <a class="topic-link" href="topic-avtohimiya.html"><img src="assets/products/myla_1.jpg" alt="" /><div class="meta"><strong>Автохимия и теплоноситель</strong><span>мойка, мыло, антифриз-теплоноситель</span></div></a>
+  </div>
+</section>
+
+<section class="section split">
+  <div class="prose">
+    <h2 style="margin-top:0;font-family:var(--display);font-size:1.35rem">Одной фразой</h2>
+    <ul>
+      <li><strong>MIKA</strong> — основной СТМ почти на всё.</li>
+      <li><strong>TORRA</strong> — пена, бетоносмесители, отрезные круги.</li>
+      <li><strong>INALL</strong> — аккумуляторный инструмент.</li>
+    </ul>
+    <div class="chip-row">
+      <span class="chip">для продавцов-консультантов</span>
+      <span class="chip">по каталогу СТМ</span>
+    </div>
+  </div>
+  <div class="media-frame">
+    <img src="assets/products/peny_2.jpg" alt="Ассортимент пен СТМ" />
+  </div>
+</section>
+
+<section class="quiz-block" id="test">
+  <h2>Тест для самоконтроля</h2>
+  <p class="hint">Проверьте, что запомнили про бренды. Отметьте ответы и нажмите «Проверить».</p>
+  <form data-mini-quiz>
+    <div class="q-item" data-answer="b"><h3>1. Какой бренд — основной и самый широкий в СТМ?</h3><div class="q-options"><label><input type="radio" name="home_q1" value="a" /><span>INALL</span></label><label><input type="radio" name="home_q1" value="b" /><span>MIKA</span></label><label><input type="radio" name="home_q1" value="c" /><span>AOER</span></label><label><input type="radio" name="home_q1" value="d" /><span>TORRA</span></label></div></div><div class="q-item" data-answer="c"><h3>2. Аккумуляторный инструмент в нашем СТМ — это бренд:</h3><div class="q-options"><label><input type="radio" name="home_q2" value="a" /><span>MIKA</span></label><label><input type="radio" name="home_q2" value="b" /><span>TORRA</span></label><label><input type="radio" name="home_q2" value="c" /><span>INALL</span></label><label><input type="radio" name="home_q2" value="d" /><span>GARDEN</span></label></div></div><div class="q-item" data-answer="b"><h3>3. TORRA встречается в категориях:</h3><div class="q-options"><label><input type="radio" name="home_q3" value="a" /><span>только масла и насосы</span></label><label><input type="radio" name="home_q3" value="b" /><span>пена, бетоносмесители, отрезные круги</span></label><label><input type="radio" name="home_q3" value="c" /><span>только мембраны</span></label><label><input type="radio" name="home_q3" value="d" /><span>только шуруповёрты</span></label></div></div>
+    <div class="quiz-actions">
+      <button class="btn btn-primary" type="submit">Проверить</button>
+      <button class="btn btn-ghost" type="button" data-reset>Сбросить</button>
+    </div>
+    <div class="quiz-result" aria-live="polite"></div>
+  </form>
+</section>
+
+    </main>
+    <footer class="foot">По материалам каталога и инструкций СТМ · MIKA / TORRA / INALL</footer>
+  </div>
+  <script src="site.js"></script>
 </body>
 </html>
