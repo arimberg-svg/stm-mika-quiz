@@ -18,7 +18,7 @@ NAV = [
 ]
 
 
-def page(title: str, body: str, extra_js: str = "") -> str:
+def page(title: str, body: str, theme: str = "home", extra_js: str = "") -> str:
     nav = "".join(f'<a href="{h}">{t}</a>' for h, t in NAV)
     return f"""<!DOCTYPE html>
 <html lang="ru">
@@ -31,7 +31,7 @@ def page(title: str, body: str, extra_js: str = "") -> str:
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Unbounded:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="site.css" />
 </head>
-<body>
+<body class="theme-{theme}">
   <div class="site">
     <header class="topnav">
       <div class="topnav-inner">
@@ -60,23 +60,33 @@ def page(title: str, body: str, extra_js: str = "") -> str:
 def gallery(paths: list[tuple[str, str]]) -> str:
     figs = []
     for src, cap in paths:
-        figs.append(f'<figure><img src="{src}" alt="{cap}" loading="lazy" /><figcaption>{cap}</figcaption></figure>')
+        figs.append(
+            f'<figure><div class="img-box"><img src="{src}" alt="{cap}" loading="lazy" /></div>'
+            f"<figcaption>{cap}</figcaption></figure>"
+        )
     return f'<div class="gallery">{"".join(figs)}</div>'
 
 
-PAGES: dict[str, str] = {}
+PAGES: dict[str, tuple[str, str]] = {}
 
 # ---- INDEX ----
-PAGES["index.html"] = page(
+PAGES["index.html"] = (
+    "home",
+    page(
     "Собственные бренды",
-    f"""
-<section class="hero" style="--hero-image:url('assets/products/peny_1.jpg')">
-  <p class="eyebrow">Для продавцов розницы</p>
-  <h1>Собственные бренды СТМ</h1>
-  <p class="lead">Короткие и понятные карточки: что продаём под своими марками, чем отличаются и что сказать покупателю.</p>
-  <div class="hero-actions">
-    <a class="btn btn-primary" href="brand-mika.html">Начать с MIKA</a>
-    <a class="btn btn-ghost" href="test.html">Пройти тест</a>
+    """
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">Для продавцов розницы</p>
+    <h1>Собственные бренды СТМ</h1>
+    <p class="lead">Короткие и понятные карточки: что продаём под своими марками, чем отличаются и что сказать покупателю.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="brand-mika.html">Начать с MIKA</a>
+      <a class="btn btn-ghost" href="test.html">Пройти тест</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <img src="assets/logos/mika.jpg" alt="Логотип MIKA — основная марка СТМ" />
   </div>
 </section>
 
@@ -98,16 +108,16 @@ PAGES["index.html"] = page(
     <a class="logo-pill" href="brand-mika.html"><img src="assets/logos/mika.jpg" alt="MIKA" /><span>MIKA</span></a>
     <a class="logo-pill" href="brand-torra.html"><img src="assets/logos/torra.jpg" alt="TORRA" /><span>TORRA</span></a>
     <a class="logo-pill" href="brand-inall.html"><img src="assets/logos/inall.jpg" alt="INALL" /><span>INALL</span></a>
-    <a class="logo-pill" href="brand-stm.html"><span style="font-family:var(--display);font-size:1.4rem;padding:0.6rem 0">СТМ</span><span>сантехника</span></a>
+    <a class="logo-pill" href="brand-stm.html"><span style="font-family:var(--display);font-size:1.4rem;padding:0.6rem 0;color:#1b6fb5">СТМ</span><span>сантехника</span></a>
   </div>
 </section>
 
 <section class="section">
   <h2>Как пользоваться обучением</h2>
   <div class="topic-grid">
-    <a class="topic-link" href="brand-mika.html"><img src="assets/products/nasosy_1.jpg" alt="" /><div class="meta"><strong>1. Страницы брендов</strong><span>что это, ассортимент, фразы для зала</span></div></a>
-    <a class="topic-link" href="analogs.html"><img src="assets/products/bity_1.jpg" alt="" /><div class="meta"><strong>2. Аналоги</strong><span>с чем сравнивают покупатели и что отвечать</span></div></a>
-    <a class="topic-link" href="test.html"><img src="assets/products/peny_2.jpg" alt="" /><div class="meta"><strong>3. Тест</strong><span>контрольные вопросы — результат сразу на странице</span></div></a>
+    <a class="topic-link" href="brand-mika.html"><div class="img-box"><img src="assets/products/nasosy_1.jpg" alt="" /></div><div class="meta"><strong>1. Страницы брендов</strong><span>что это, ассортимент, фразы для зала</span></div></a>
+    <a class="topic-link" href="analogs.html"><div class="img-box"><img src="assets/products/bity_1.jpg" alt="" /></div><div class="meta"><strong>2. Аналоги</strong><span>с чем сравнивают покупатели и что отвечать</span></div></a>
+    <a class="topic-link" href="test.html"><div class="img-box"><img src="assets/products/peny_2.jpg" alt="" /></div><div class="meta"><strong>3. Тест</strong><span>контрольные вопросы — результат сразу на странице</span></div></a>
   </div>
 </section>
 
@@ -121,9 +131,11 @@ PAGES["index.html"] = page(
       <li><strong>СТМ</strong> — сантехника: краны, МП труба, фитинги, комплекты на радиатор.</li>
     </ul>
   </div>
-  <div class="media-frame"><img src="assets/peny-shpargalka.jpg" alt="Шпаргалка по пенам" style="object-fit:contain;background:#fff" /></div>
+  <div class="media-frame"><img src="assets/peny-shpargalka.jpg" alt="Шпаргалка по пенам" /></div>
 </section>
 """,
+    "home",
+),
 )
 
 # ---- MIKA ----
