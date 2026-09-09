@@ -647,11 +647,13 @@ tabs = [
     (
         "briq",
         "Брикеты",
-        f"""
+        """
 <div class="gallery gallery-1">
   <figure><div class="img-box"><img src="assets/web/mika/briquettes.jpg" alt="Брикеты" loading="lazy" /></div><figcaption>Угольные брикеты MIKA, 3 кг</figcaption></figure>
 </div>
-{cards([{{'art':'331113','name':'Угольные брикеты MIKA, 3 кг'}}], kind='briq')}
+"""
+        + cards([{"art": "331113", "name": "Угольные брикеты MIKA, 3 кг"}], kind="briq")
+        + """
 <div class="prose" style="margin-top:1rem">
   <h3 style="margin-top:0;font-family:var(--display);font-size:1.05rem">Как разжигать</h3>
   <p><strong>Стартером:</strong> брикеты сверху, снизу 1–2 спиртовых тюбика, 15–20 минут.</p>
