@@ -815,6 +815,46 @@ body.theme-home, body.theme-analogs, body.theme-test {
   font-weight: 500;
   max-width: 68ch;
 }
+.prod-stack {
+  display: grid;
+  gap: 2rem;
+  margin: 0.75rem 0 1.6rem;
+  max-width: 760px;
+}
+.prod-row {
+  display: grid;
+  gap: 0.65rem;
+}
+.prod-row-img img {
+  width: 100%;
+  max-height: 440px;
+  object-fit: contain;
+  display: block;
+  background: #fff;
+}
+.prod-row-body {
+  display: grid;
+  gap: 0.35rem;
+}
+.prod-row-body strong {
+  font-size: 1.2rem;
+  line-height: 1.35;
+  font-weight: 800;
+}
+.prod-row-body .art {
+  color: #6b6b6b;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.prod-row-body .how {
+  margin: 0.15rem 0 0;
+  color: var(--ink);
+  font-size: 1.1rem;
+  line-height: 1.62;
+  font-weight: 500;
+  max-width: 68ch;
+}
 .bits-guide {
   max-width: 72ch;
   font-size: 1.05rem;
@@ -822,4 +862,12 @@ body.theme-home, body.theme-analogs, body.theme-test {
 }
 .bits-guide ol, .bits-guide ul { margin: 0.4rem 0 0.8rem; padding-left: 1.15rem; }
 .bits-guide li { margin: 0.45rem 0; }
+
+.brand-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.35rem;
+}
+.brand-cta-row .btn { min-width: 8.5rem; text-align: center; }
 
