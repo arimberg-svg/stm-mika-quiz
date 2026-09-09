@@ -657,3 +657,24 @@ body.theme-torra .page-head {
   border: 1px solid var(--line);
   border-left: 6px solid var(--brand);
 }
+
+/* WHITE_BG_ALL_2026 */
+body, .site, .topnav, .prose, .page-head, .gallery figure,
+.media-frame, .hero, .hero-visual, .topic-link, .logo-pill,
+.img-box {
+  background-color: #ffffff !important;
+}
+body.theme-mika, body.theme-torra, body.theme-inall,
+body.theme-home, body.theme-analogs, body.theme-test {
+  --brand-soft: #ffffff;
+  background: #ffffff;
+}
+.gallery .img-box, .topic-link .img-box, .media-frame, .hero-visual {
+  background: #ffffff !important;
+}
+.gallery-1 { grid-template-columns: minmax(220px, 420px); }
+.muted { color: var(--muted); font-size: 0.9rem; }
+.assort-block h2 { margin-bottom: 0.6rem; }
+.page-head {
+  border: 1px solid var(--line);
+}
