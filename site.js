@@ -140,4 +140,32 @@
       a.classList.add("active");
     }
   });
+
+  document.querySelectorAll("[data-tabs]").forEach((root) => {
+    const buttons = [...root.querySelectorAll(".tab-btn")];
+    const panels = [...root.querySelectorAll(".tab-panel")];
+    function activate(id) {
+      buttons.forEach((btn) => {
+        const on = btn.getAttribute("data-tab") === id;
+        btn.classList.toggle("is-active", on);
+        btn.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      panels.forEach((panel) => {
+        const on = panel.id === "tab-" + id;
+        panel.classList.toggle("is-active", on);
+        if (on) panel.removeAttribute("hidden");
+        else panel.setAttribute("hidden", "");
+      });
+      try {
+        history.replaceState(null, "", "#" + id);
+      } catch (e) {}
+    }
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => activate(btn.getAttribute("data-tab")));
+    });
+    const hash = (location.hash || "").replace(/^#/, "");
+    if (hash && buttons.some((b) => b.getAttribute("data-tab") === hash)) {
+      activate(hash);
+    }
+  });
 })();
