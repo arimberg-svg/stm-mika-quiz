@@ -1,6 +1,6 @@
-/* Mini self-check quizzes on presentation pages */
+/* Training site: nav + self-check quiz */
 (function () {
-  function grade(form) {
+  function gradeForm(form) {
     const items = [...form.querySelectorAll(".q-item")];
     let correct = 0;
     items.forEach((item) => {
@@ -22,7 +22,8 @@
       }
     });
     const total = items.length;
-    const out = form.querySelector(".quiz-result");
+    const out = form.querySelector(".quiz-result") || document.getElementById("quiz-result");
+    if (!out) return;
     const pct = total ? correct / total : 0;
     out.classList.remove("ok", "mid", "bad");
     if (pct >= 0.8) {
@@ -37,10 +38,79 @@
     }
   }
 
+  function renderQuiz(root) {
+    const raw = root.getAttribute("data-questions");
+    if (!raw) return;
+    let questions;
+    try {
+      questions = JSON.parse(raw);
+    } catch (e) {
+      return;
+    }
+    const host = root.querySelector("#quiz-questions") || root;
+    host.innerHTML = "";
+    const form = document.createElement("form");
+    form.setAttribute("data-mini-quiz", "");
+    form.id = "quiz-form";
+    questions.forEach((q, i) => {
+      const item = document.createElement("div");
+      item.className = "q-item";
+      item.dataset.answer = q.answer;
+      const h = document.createElement("h3");
+      h.textContent = `${i + 1}. ${q.q}`;
+      item.appendChild(h);
+      const opts = document.createElement("div");
+      opts.className = "q-options";
+      Object.entries(q.options).forEach(([key, label]) => {
+        const lab = document.createElement("label");
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = `q${i}`;
+        input.value = key;
+        lab.appendChild(input);
+        lab.appendChild(document.createTextNode(" " + label));
+        opts.appendChild(lab);
+      });
+      item.appendChild(opts);
+      form.appendChild(item);
+    });
+    host.appendChild(form);
+
+    let result = document.getElementById("quiz-result");
+    if (!result) {
+      result = document.createElement("div");
+      result.className = "quiz-result";
+      result.id = "quiz-result";
+      result.setAttribute("aria-live", "polite");
+      const actions = root.querySelector(".quiz-actions");
+      if (actions && actions.parentNode) {
+        actions.parentNode.insertBefore(result, actions.nextSibling);
+      } else {
+        form.appendChild(result);
+      }
+    }
+
+    const check = document.getElementById("quiz-check");
+    const reset = document.getElementById("quiz-reset");
+    if (check) {
+      check.addEventListener("click", () => gradeForm(form));
+    }
+    if (reset) {
+      reset.addEventListener("click", () => {
+        form.reset();
+        form.querySelectorAll("label").forEach((lab) => {
+          lab.classList.remove("is-correct", "is-wrong");
+        });
+        result.textContent = "";
+        result.classList.remove("ok", "mid", "bad");
+      });
+    }
+  }
+
   document.querySelectorAll("[data-mini-quiz]").forEach((form) => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      grade(form);
+      gradeForm(form);
     });
     const reset = form.querySelector("[data-reset]");
     if (reset) {
@@ -50,13 +120,19 @@
           lab.classList.remove("is-correct", "is-wrong");
         });
         const out = form.querySelector(".quiz-result");
-        out.textContent = "";
-        out.classList.remove("ok", "mid", "bad");
+        if (out) {
+          out.textContent = "";
+          out.classList.remove("ok", "mid", "bad");
+        }
       });
     }
   });
 
-  // mark active nav link
+  const quizRoot = document.getElementById("quiz");
+  if (quizRoot && quizRoot.getAttribute("data-questions")) {
+    renderQuiz(quizRoot);
+  }
+
   const path = location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".nav-links a").forEach((a) => {
     const href = a.getAttribute("href");

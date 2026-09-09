@@ -46,15 +46,6 @@ body.theme-inall {
   --ember: #3e6b47;
 }
 
-/* СТМ сантехника — синий воды */
-body.theme-stm {
-  --brand: #1b6fb5;
-  --brand-strong: #145589;
-  --brand-soft: #e8f3fb;
-  --on-brand: #ffffff;
-  --ember: #1b6fb5;
-}
-
 /* Аналоги / тест / главная */
 body.theme-home {
   --brand: #222222;
@@ -399,11 +390,11 @@ a:hover { color: var(--ember); }
   justify-content: center;
   padding: 1rem;
   background: #fafafa;
-  min-height: 260px;
+  min-height: 280px;
 }
 .gallery img {
   width: 100%;
-  max-height: 320px;
+  max-height: 360px;
   object-fit: contain;
   display: block;
   transition: none;
@@ -561,3 +552,108 @@ table.cmp th {
   font-size: 0.85rem;
 }
 table.cmp tr:nth-child(even) td { background: #fafafa; }
+
+/* PATCH_UMIH_2026 */
+
+/* Убрана тема СТМ-сантехники */
+body.theme-torra {
+  --brand: #f07a1a;
+  --brand-strong: #c45a00;
+  --brand-soft: #ffffff;
+  --on-brand: #ffffff;
+  --ember: #f07a1a;
+  background: #ffffff;
+}
+
+.hero-logo {
+  background: #ffffff;
+  min-height: 220px;
+}
+.hero-logo img {
+  max-height: 140px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.brand-lockup img[src*="umih"] {
+  width: auto;
+  height: 2.4rem;
+  max-width: 9rem;
+  object-fit: contain;
+  padding: 0.2rem 0.35rem;
+}
+
+.topic-icon .icon-box {
+  background: #f7f7f7;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-strong);
+  padding: 1.2rem;
+}
+.topic-icon .icon-box svg {
+  width: 64px;
+  height: 64px;
+}
+.topic-icon .img-box { display: none; }
+
+.split-cheat {
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .split-cheat { grid-template-columns: 1fr; }
+}
+
+.media-frame-lg {
+  min-height: 420px;
+  padding: 0.75rem;
+}
+.media-frame-lg img {
+  max-height: none;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.gallery-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.gallery-products {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 720px) {
+  .gallery-2,
+  .gallery-products { grid-template-columns: 1fr; }
+}
+
+.img-box-lg {
+  min-height: 320px !important;
+  background: #ffffff !important;
+}
+.img-box-lg img,
+.gallery .img-box-lg img {
+  max-height: 380px !important;
+}
+
+.gallery figcaption .art {
+  display: block;
+  font-weight: 600;
+  color: #888;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+body.theme-torra .page-head,
+body.theme-torra .prose,
+body.theme-torra .gallery figure,
+body.theme-torra .media-frame,
+body.theme-torra .topnav {
+  background: #ffffff;
+}
+body.theme-torra .page-head {
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--brand);
+}

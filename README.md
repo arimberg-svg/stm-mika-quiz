@@ -1,22 +1,17 @@
-# Обучение СТМ для продавцов розницы
+# Обучение собственным брендам «У Михалыча»
 
-Презентация собственных брендов сети «У Михалыча» (MIKA / TORRA / INALL / СТМ сантехника).
+Презентация для продавцов розницы: **MIKA**, **TORRA**, **INALL**.
 
-## Онлайн
-
+Сайт на GitHub Pages:  
 https://arimberg-svg.github.io/stm-mika-quiz/
 
 ## Страницы
 
-- `index.html` — что такое СТМ
-- `brand-mika.html`, `brand-torra.html`, `brand-inall.html`, `brand-stm.html` — по брендам
-- `analogs.html` — аналоги и как отвечать в зале
-- `test.html` — контрольные вопросы, результат сразу на странице
+- `index.html` — главная, логотип сети, шпаргалка по пенам
+- `brand-mika.html` — MIKA (пены, все насосы, угольные брикеты)
+- `brand-torra.html` — TORRA (бетоносмесители, пена PRO, круги)
+- `brand-inall.html` — INALL
+- `analogs.html` — аналоги и скрипты ответа
+- `test.html` — тест самоконтроля
 
-Материалы: обучающие папки СТМ + тексты/ассортимент с [gvozditut.ru](https://gvozditut.ru/brands/mika/).
-
-## Сборка
-
-```bash
-python rebuild_site.py
-```
+Материалы: каталог СТМ + ассортимент с [gvozditut.ru](https://gvozditut.ru/brands/mika/).
